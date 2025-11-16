@@ -1,15 +1,29 @@
 ---
 title: TypedArray.prototype.at()
+short-title: at()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/at
 page-type: javascript-instance-method
 browser-compat: javascript.builtins.TypedArray.at
+sidebar: jsref
 ---
-
-{{JSRef}}
 
 The **`at()`** method of {{jsxref("TypedArray")}} instances takes an integer value and returns the item at that index, allowing for positive and negative integers. Negative integers count back from the last item in the typed array. This method has the same algorithm as {{jsxref("Array.prototype.at()")}}.
 
-{{EmbedInteractiveExample("pages/js/typedarray-at.html")}}
+{{InteractiveExample("JavaScript Demo: TypedArray.prototype.at()")}}
+
+```js interactive-example
+const int8 = new Int8Array([0, 10, -10, 20, -30, 40, -50]);
+
+let index = 1;
+
+console.log(`An index of ${index} returns the item ${int8.at(index)}`);
+// Expected output: "An index of 1 returns the item 10"
+
+index = -2;
+
+console.log(`An index of ${index} returns the item ${int8.at(index)}`);
+// Expected output: "An index of -2 returns the item 40"
+```
 
 ## Syntax
 
@@ -20,7 +34,7 @@ at(index)
 ### Parameters
 
 - `index`
-  - : Zero-based index of the array element to be returned, [converted to an integer](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion). Negative index counts back from the end of the array — if `index < 0`, `index + array.length` is accessed.
+  - : Zero-based index of the typed array element to be returned, [converted to an integer](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion). Negative index counts back from the end of the typed array — if `index < 0`, `index + array.length` is accessed.
 
 ### Return value
 
@@ -80,9 +94,11 @@ console.log(atWay); // 11
 ## See also
 
 - [Polyfill of `TypedArray.prototype.at` in `core-js`](https://github.com/zloirock/core-js#relative-indexing-method)
+- [es-shims polyfill of `TypedArray.prototype.at`](https://www.npmjs.com/package/typedarray.prototype.at)
 - [JavaScript typed arrays](/en-US/docs/Web/JavaScript/Guide/Typed_arrays) guide
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.findIndex()")}}
 - {{jsxref("TypedArray.prototype.indexOf()")}}
+- {{jsxref("TypedArray.prototype.with()")}}
 - {{jsxref("Array.prototype.at()")}}
 - {{jsxref("String.prototype.at()")}}

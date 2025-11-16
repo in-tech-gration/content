@@ -2,12 +2,11 @@
 title: "SyntaxError: missing ] after element list"
 slug: Web/JavaScript/Reference/Errors/Missing_bracket_after_list
 page-type: javascript-error
+sidebar: jssidebar
 ---
 
-{{jsSidebar("Errors")}}
-
 The JavaScript exception "missing ] after element list" occurs when there is an error
-with the array initializer syntax somewhere. Likely there is a closing bracket
+with the array initializer syntax somewhere. Likely there is a closing square bracket
 (`]`) or a comma (`,`) missing.
 
 ## Message
@@ -24,7 +23,7 @@ SyntaxError: Unexpected token ';'. Expected either a closing ']' or a ',' follow
 ## What went wrong?
 
 There is an error with the array initializer syntax somewhere. Likely there is a
-closing bracket (`]`) or a comma (`,`) missing.
+closing square bracket (`]`) or a comma (`,`) missing.
 
 ## Examples
 

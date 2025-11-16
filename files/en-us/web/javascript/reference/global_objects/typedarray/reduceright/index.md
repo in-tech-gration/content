@@ -1,15 +1,26 @@
 ---
 title: TypedArray.prototype.reduceRight()
+short-title: reduceRight()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/reduceRight
 page-type: javascript-instance-method
 browser-compat: javascript.builtins.TypedArray.reduceRight
+sidebar: jsref
 ---
-
-{{JSRef}}
 
 The **`reduceRight()`** method of {{jsxref("TypedArray")}} instances applies a function against an accumulator and each value of the typed array (from right-to-left) to reduce it to a single value. This method has the same algorithm as {{jsxref("Array.prototype.reduceRight()")}}.
 
-{{EmbedInteractiveExample("pages/js/typedarray-reduceright.html")}}
+{{InteractiveExample("JavaScript Demo: TypedArray.prototype.reduceRight()")}}
+
+```js interactive-example
+const uint8 = new Uint8Array([10, 20, 30]);
+
+const result = uint8.reduceRight(
+  (accumulator, currentValue) => `${accumulator}, ${currentValue}`,
+);
+
+console.log(result);
+// Expected output: "30, 20, 10"
+```
 
 ## Syntax
 
@@ -23,7 +34,7 @@ reduceRight(callbackFn, initialValue)
 - `callbackFn`
   - : A function to execute for each element in the typed array. Its return value becomes the value of the `accumulator` parameter on the next invocation of `callbackFn`. For the last invocation, the return value becomes the return value of `reduceRight()`. The function is called with the following arguments:
     - `accumulator`
-      - : The value resulting from the previous call to `callbackFn`. On the first call, its value is `initialValue` if the latter is specified; otherwise its value is the last element of the array.
+      - : The value resulting from the previous call to `callbackFn`. On the first call, its value is `initialValue` if the latter is specified; otherwise its value is the last element of the typed array.
     - `currentValue`
       - : The value of the current element. On the first call, its value is the last element if `initialValue` is specified; otherwise its value is the second-to-last element.
     - `currentIndex`
@@ -66,3 +77,5 @@ const total = new Uint8Array([0, 1, 2, 3]).reduceRight((a, b) => a + b);
 - {{jsxref("TypedArray.prototype.map()")}}
 - {{jsxref("TypedArray.prototype.reduce()")}}
 - {{jsxref("Array.prototype.reduceRight()")}}
+- {{jsxref("Object.groupBy()")}}
+- {{jsxref("Map.groupBy()")}}

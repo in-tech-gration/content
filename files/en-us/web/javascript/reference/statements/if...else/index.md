@@ -3,13 +3,27 @@ title: if...else
 slug: Web/JavaScript/Reference/Statements/if...else
 page-type: javascript-statement
 browser-compat: javascript.statements.if_else
+sidebar: jssidebar
 ---
-
-{{jsSidebar("Statements")}}
 
 The **`if...else`** statement executes a statement if a specified condition is {{Glossary("truthy")}}. If the condition is {{Glossary("falsy")}}, another statement in the optional `else` clause will be executed.
 
-{{EmbedInteractiveExample("pages/js/statement-ifelse.html")}}
+{{InteractiveExample("JavaScript Demo: if...else statement")}}
+
+```js interactive-example
+function testNum(a) {
+  let result;
+  if (a > 0) {
+    result = "positive";
+  } else {
+    result = "NOT positive";
+  }
+  return result;
+}
+
+console.log(testNum(-5));
+// Expected output: "NOT positive"
+```
 
 ## Syntax
 
@@ -109,7 +123,7 @@ function checkValue(a, b) {
 }
 ```
 
-Do not confuse the primitive Boolean values `true` and `false` with truthiness or falsiness of the {{jsxref("Global_Objects/Boolean", "Boolean")}} object. Any value that is not `false`, `undefined`, `null`, `0`, `-0`, `NaN`, or the empty string (`""`), and any object, including a Boolean object whose value is `false`, is considered {{Glossary("truthy")}} when used as the condition. For example:
+Do not confuse the primitive Boolean values `true` and `false` with truthiness or falsiness of the {{jsxref("Boolean")}} object. Any value that is not `false`, `undefined`, `null`, `0`, `-0`, `NaN`, or the empty string (`""`), and any object, including a Boolean object whose value is `false`, is considered {{Glossary("truthy")}} when used as the condition. For example:
 
 ```js
 const b = new Boolean(false);

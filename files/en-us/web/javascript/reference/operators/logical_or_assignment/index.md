@@ -3,13 +3,24 @@ title: Logical OR assignment (||=)
 slug: Web/JavaScript/Reference/Operators/Logical_OR_assignment
 page-type: javascript-operator
 browser-compat: javascript.operators.logical_or_assignment
+sidebar: jssidebar
 ---
-
-{{jsSidebar("Operators")}}
 
 The **logical OR assignment (`||=`)** operator only evaluates the right operand and assigns to the left if the left operand is {{Glossary("falsy")}}.
 
-{{EmbedInteractiveExample("pages/js/expressions-logical-or-assignment.html")}}
+{{InteractiveExample("JavaScript Demo: Logical OR assignment (||=) operator")}}
+
+```js interactive-example
+const a = { duration: 50, title: "" };
+
+a.duration ||= 10;
+console.log(a.duration);
+// Expected output: 50
+
+a.title ||= "title is empty.";
+console.log(a.title);
+// Expected output: "title is empty."
+```
 
 ## Syntax
 
@@ -19,11 +30,7 @@ x ||= y
 
 ## Description
 
-Logical OR assignment [_short-circuits_](/en-US/docs/Web/JavaScript/Reference/Operators/Operator_precedence#short-circuiting), meaning that `x ||= y` is equivalent to:
-
-```js
-x || (x = y);
-```
+Logical OR assignment [_short-circuits_](/en-US/docs/Web/JavaScript/Reference/Operators/Operator_precedence#short-circuiting), meaning that `x ||= y` is equivalent to `x || (x = y)`, except that the expression `x` is only evaluated once.
 
 No assignment is performed if the left-hand side is not falsy, due to short-circuiting of the [logical OR](/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR) operator. For example, the following does not throw an error, despite `x` being `const`:
 

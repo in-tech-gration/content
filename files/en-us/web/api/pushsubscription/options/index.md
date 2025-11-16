@@ -6,7 +6,7 @@ page-type: web-api-instance-property
 browser-compat: api.PushSubscription.options
 ---
 
-{{APIRef("Push API")}}
+{{APIRef("Push API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
 The **`options`** read-only property
 of the {{domxref("PushSubscription")}} interface is an object containing the options
@@ -14,7 +14,7 @@ used to create the subscription.
 
 ## Value
 
-An read-only {{domxref("PushSubscriptionOptions")}} object containing the following values:
+A read-only {{domxref("PushSubscriptionOptions")}} object containing the following values:
 
 - `userVisibleOnly`
   - : A boolean, indicating that the returned push

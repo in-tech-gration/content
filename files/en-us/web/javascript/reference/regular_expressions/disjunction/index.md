@@ -3,9 +3,8 @@ title: "Disjunction: |"
 slug: Web/JavaScript/Reference/Regular_expressions/Disjunction
 page-type: javascript-language-feature
 browser-compat: javascript.regular_expressions.disjunction
+sidebar: jssidebar
 ---
-
-{{JsSidebar}}
 
 A **disjunction** specifies multiple alternatives. Any alternative matching the input causes the entire disjunction to be matched.
 

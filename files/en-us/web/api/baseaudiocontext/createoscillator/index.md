@@ -12,8 +12,9 @@ The `createOscillator()` method of the {{domxref("BaseAudioContext")}}
 interface creates an {{domxref("OscillatorNode")}}, a source representing a periodic
 waveform. It basically generates a constant tone.
 
-> **Note:** The {{domxref("OscillatorNode.OscillatorNode", "OscillatorNode()")}}
-> constructor is the recommended way to create a {{domxref("OscillatorNode")}}; see
+> [!NOTE]
+> The {{domxref("OscillatorNode.OscillatorNode", "OscillatorNode()")}}
+> constructor is the recommended way to create an {{domxref("OscillatorNode")}}; see
 > [Creating an AudioNode](/en-US/docs/Web/API/AudioNode#creating_an_audionode).
 
 ## Syntax
@@ -33,7 +34,7 @@ An {{domxref("OscillatorNode")}}.
 ## Examples
 
 The following example shows basic usage of an AudioContext to create an oscillator
-node. For applied examples/information, check out our [Violent Theremin demo](https://mdn.github.io/webaudio-examples/violent-theremin/) ([see app.js](https://github.com/mdn/webaudio-examples/blob/master/violent-theremin/scripts/app.js) for relevant code); also see our {{domxref("OscillatorNode")}} page for
+node. For applied examples/information, check out our [Violent Theremin demo](https://mdn.github.io/webaudio-examples/violent-theremin/) ([see app.js](https://github.com/mdn/webaudio-examples/blob/main/violent-theremin/scripts/app.js) for relevant code); also see our {{domxref("OscillatorNode")}} page for
 more information.
 
 ```js

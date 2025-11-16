@@ -3,17 +3,23 @@ title: Arrow function expressions
 slug: Web/JavaScript/Reference/Functions/Arrow_functions
 page-type: javascript-language-feature
 browser-compat: javascript.functions.arrow_functions
+sidebar: jssidebar
 ---
-
-{{jsSidebar("Functions")}}
 
 An **arrow function expression** is a compact alternative to a traditional [function expression](/en-US/docs/Web/JavaScript/Reference/Operators/function), with some semantic differences and deliberate limitations in usage:
 
-- Arrow functions don't have their own {{glossary("binding", "bindings")}} to [`this`](/en-US/docs/Web/JavaScript/Reference/Operators/this), [`arguments`](/en-US/docs/Web/JavaScript/Reference/Functions/arguments), or [`super`](/en-US/docs/Web/JavaScript/Reference/Operators/super), and should not be used as [methods](/en-US/docs/Glossary/Method).
+- Arrow functions don't have their own {{Glossary("binding", "bindings")}} to [`this`](/en-US/docs/Web/JavaScript/Reference/Operators/this), [`arguments`](/en-US/docs/Web/JavaScript/Reference/Functions/arguments), or [`super`](/en-US/docs/Web/JavaScript/Reference/Operators/super), and should not be used as [methods](/en-US/docs/Glossary/Method).
 - Arrow functions cannot be used as [constructors](/en-US/docs/Glossary/Constructor). Calling them with [`new`](/en-US/docs/Web/JavaScript/Reference/Operators/new) throws a {{jsxref("TypeError")}}. They also don't have access to the [`new.target`](/en-US/docs/Web/JavaScript/Reference/Operators/new.target) keyword.
 - Arrow functions cannot use [`yield`](/en-US/docs/Web/JavaScript/Reference/Operators/yield) within their body and cannot be created as generator functions.
 
-{{EmbedInteractiveExample("pages/js/functions-arrow.html")}}
+{{InteractiveExample("JavaScript Demo: Arrow function expressions")}}
+
+```js interactive-example
+const materials = ["Hydrogen", "Helium", "Lithium", "Beryllium"];
+
+console.log(materials.map((material) => material.length));
+// Expected output: Array [8, 6, 7, 9]
+```
 
 ## Syntax
 
@@ -39,7 +45,7 @@ param => {
 }
 ```
 
-[Rest parameters](/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters), [default parameters](/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters), and [destructuring](/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) within params are supported, and always require parentheses:
+[Rest parameters](/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters), [default parameters](/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters), and [destructuring](/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring) within params are supported, and always require parentheses:
 
 ```js-nolint
 (a, b, ...r) => expression
@@ -61,7 +67,8 @@ async (param1, param2, ...paramN) => {
 
 Let's decompose a traditional anonymous function down to the simplest arrow function step-by-step. Each step along the way is a valid arrow function.
 
-> **Note:** Traditional function expressions and arrow functions have more differences than their syntax. We will introduce their behavior differences in more detail in the next few subsections.
+> [!NOTE]
+> Traditional function expressions and arrow functions have more differences than their syntax. We will introduce their behavior differences in more detail in the next few subsections.
 
 ```js-nolint
 // Traditional anonymous function
@@ -69,7 +76,7 @@ Let's decompose a traditional anonymous function down to the simplest arrow func
   return a + 100;
 });
 
-// 1. Remove the word "function" and place arrow between the argument and opening body bracket
+// 1. Remove the word "function" and place arrow between the argument and opening body brace
 (a) => {
   return a + 100;
 };
@@ -106,7 +113,7 @@ const b = 2;
 () => a + b + 100;
 ```
 
-The braces can only be omitted if the function directly returns an expression. If the body has additional lines of processing, the braces are required — and so is the `return` keyword. Arrow functions cannot guess what or when you want to return.
+The braces can only be omitted if the function directly returns an expression. If the body has statements, the braces are required — and so is the `return` keyword. Arrow functions cannot guess what or when you want to return.
 
 ```js
 // Traditional anonymous function
@@ -122,7 +129,7 @@ The braces can only be omitted if the function directly returns an expression. I
 };
 ```
 
-Arrow functions are always unnamed. If the arrow function needs to call itself, use a named function expression instead. You can also assign the arrow function to a variable so it has a name.
+Arrow functions are not inherently associated with a name. If the arrow function needs to call itself, use a named function expression instead. You can also assign the arrow function to a variable, allowing you to refer to it through that variable.
 
 ```js
 // Traditional Function
@@ -136,13 +143,13 @@ const bob2 = (a) => a + 100;
 
 ### Function body
 
-Arrow functions can have either a _concise body_ or the usual _block body_.
+Arrow functions can have either an _expression body_ or the usual _block body_.
 
-In a concise body, only a single expression is specified, which becomes the implicit return value. In a block body, you must use an explicit `return` statement.
+In an expression body, only a single expression is specified, which becomes the implicit return value. In a block body, you must use an explicit `return` statement.
 
 ```js
 const func = (x) => x * x;
-// concise body syntax, implied "return"
+// expression body syntax, implied "return"
 
 const func2 = (x, y) => {
   return x + y;
@@ -150,7 +157,7 @@ const func2 = (x, y) => {
 // with block body, explicit "return" needed
 ```
 
-Returning object literals using the concise body syntax `(params) => { object: literal }` does not work as expected.
+Returning object literals using the expression body syntax `(params) => { object: literal }` does not work as expected.
 
 ```js-nolint example-bad
 const func = () => { foo: 1 };
@@ -163,7 +170,7 @@ const func3 = () => { foo() {} };
 // SyntaxError: Unexpected token '{'
 ```
 
-This is because JavaScript only sees the arrow function as having a concise body if the token following the arrow is not a left brace, so the code inside braces ({}) is parsed as a sequence of statements, where `foo` is a [label](/en-US/docs/Web/JavaScript/Reference/Statements/label), not a key in an object literal.
+This is because JavaScript only sees the arrow function as having an expression body if the token following the arrow is not a left brace, so the code inside braces ({}) is parsed as a sequence of statements, where `foo` is a [label](/en-US/docs/Web/JavaScript/Reference/Statements/label), not a key in an object literal.
 
 To fix this, wrap the object literal in parentheses:
 
@@ -207,7 +214,7 @@ Object.defineProperty(obj, "b", {
 });
 ```
 
-Because a [class](/en-US/docs/Web/JavaScript/Reference/Classes)'s body has a `this` context, arrow functions as [class fields](/en-US/docs/Web/JavaScript/Reference/Classes/Public_class_fields) close over the class's `this` context, and the `this` inside the arrow function's body will correctly point to the instance (or the class itself, for [static fields](/en-US/docs/Web/JavaScript/Reference/Classes/static)). However, because it is a [closure](/en-US/docs/Web/JavaScript/Closures), not the function's own binding, the value of `this` will not change based on the execution context.
+Because a [class](/en-US/docs/Web/JavaScript/Reference/Classes)'s body has a `this` context, arrow functions as [class fields](/en-US/docs/Web/JavaScript/Reference/Classes/Public_class_fields) close over the class's `this` context, and the `this` inside the arrow function's body will correctly point to the instance (or the class itself, for [static fields](/en-US/docs/Web/JavaScript/Reference/Classes/static)). However, because it is a [closure](/en-US/docs/Web/JavaScript/Guide/Closures), not the function's own binding, the value of `this` will not change based on the execution context.
 
 ```js
 class C {
@@ -238,7 +245,8 @@ class C {
 }
 ```
 
-> **Note:** Class fields are defined on the _instance_, not on the _prototype_, so every instance creation would create a new function reference and allocate a new closure, potentially leading to more memory usage than a normal unbound method.
+> [!NOTE]
+> Class fields are defined on the _instance_, not on the _prototype_, so every instance creation would create a new function reference and allocate a new closure, potentially leading to more memory usage than a normal unbound method.
 
 For similar reasons, the [`call()`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call), [`apply()`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply), and [`bind()`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) methods are not useful when called on arrow functions, because arrow functions establish `this` based on the scope the arrow function is defined within, and the `this` value does not change based on how the function is invoked.
 
@@ -254,8 +262,6 @@ function foo(n) {
 
 foo(3); // 3 + 3 = 6
 ```
-
-> **Note:** You cannot declare a variable called `arguments` in [strict mode](/en-US/docs/Web/JavaScript/Reference/Strict_mode#making_eval_and_arguments_simpler), so the code above would be a syntax error. This makes the scoping effect of `arguments` much easier to comprehend.
 
 In most cases, using [rest parameters](/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters)
 is a good alternative to using an `arguments` object.
@@ -370,7 +376,7 @@ promise
     // …
   });
 
-// Parameterless arrow functions that are visually easier to parse
+// Arrow functions without parameters
 setTimeout(() => {
   console.log("I happen sooner");
   setTimeout(() => {
@@ -392,10 +398,10 @@ const obj = {
 // Setting "num" on globalThis to show how it is NOT used.
 globalThis.num = 42;
 
-// A simple traditional function to operate on "this"
-const add = function (a, b, c) {
+// A traditional function to operate on "this"
+function add(a, b, c) {
   return this.num + a + b + c;
-};
+}
 
 console.log(add.call(obj, 1, 2, 3)); // 106
 console.log(add.apply(obj, [1, 2, 3])); // 106
@@ -422,7 +428,7 @@ const boundAdd = add.bind(obj);
 console.log(boundAdd(1, 2, 3)); // 48
 ```
 
-Perhaps the greatest benefit of using arrow functions is with methods like {{domxref("setTimeout()")}} and {{domxref("EventTarget/addEventListener()", "EventTarget.prototype.addEventListener()")}} that usually require some kind of closure, `call()`, `apply()`, or `bind()` to ensure that the function is executed in the proper scope.
+Perhaps the greatest benefit of using arrow functions is with methods like {{domxref("Window.setTimeout", "setTimeout()")}} and {{domxref("EventTarget.addEventListener()", "EventTarget.prototype.addEventListener()")}} that usually require some kind of closure, `call()`, `apply()`, or `bind()` to ensure that the function is executed in the proper scope.
 
 With traditional function expressions, code like this does not work as expected:
 

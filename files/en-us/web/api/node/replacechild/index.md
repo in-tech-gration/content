@@ -20,11 +20,13 @@ replaceChild(newChild, oldChild)
 
 - `newChild`
   - : The new node to replace `oldChild`.
-    > **Warning:** If the new node is already present somewhere else in the DOM, it is first removed from that position.
+    > [!WARNING]
+    > If the new node is already present somewhere else in the DOM, it is first removed from that position.
 - `oldChild`
   - : The child to be replaced.
 
-> **Note:** The parameter order, _new_ before _old_, is unusual.
+> [!NOTE]
+> The parameter order, _new_ before _old_, is unusual.
 > [`Element.replaceWith()`](/en-US/docs/Web/API/Element/replaceWith), applying only to nodes that are elements,
 > may be easier to read and use.
 
@@ -63,10 +65,10 @@ const sp1 = document.createElement("span");
 sp1.id = "newSpan";
 
 // Create some content for the new element.
-const sp1_content = document.createTextNode("new replacement span element.");
+const sp1Content = document.createTextNode("new replacement span element.");
 
 // Apply that content to the new element
-sp1.appendChild(sp1_content);
+sp1.appendChild(sp1Content);
 
 // Build a reference to the existing node to be replaced
 const sp2 = document.getElementById("childSpan");

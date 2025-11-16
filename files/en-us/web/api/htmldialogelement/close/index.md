@@ -30,13 +30,13 @@ None ({{jsxref("undefined")}}).
 ## Examples
 
 The following example shows a simple button that, when clicked, opens a {{htmlelement("dialog")}} containing a form via the `showModal()` method.
-From there you can click the _X_ button to close the dialog (via the {{domxref("HTMLDialogElement.close()")}} method), or submit the form via the submit button.
+From there you can click the _X_ button to close the dialog (via the `HTMLDialogElement.close()` method), or submit the form via the submit button.
 
 ```html
 <!-- Simple pop-up dialog box, containing a form -->
 <dialog id="favDialog">
   <form method="dialog">
-    <button id="close" aria-label="close" formnovalidate>X</button>
+    <button type="button" id="close" aria-label="close">X</button>
     <section>
       <p>
         <label for="favAnimal">Favorite animal:</label>
@@ -49,48 +49,48 @@ From there you can click the _X_ button to close the dialog (via the {{domxref("
       </p>
     </section>
     <menu>
-      <button type="reset">Reset</button>
-      <button type="submit">Confirm</button>
+      <li>
+        <button type="reset">Reset</button>
+      </li>
+      <li>
+        <button type="submit">Confirm</button>
+      </li>
     </menu>
   </form>
 </dialog>
 
-<menu>
-  <button id="updateDetails">Update details</button>
-</menu>
+<button id="updateDetails">Update details</button>
+```
 
-<script>
-  (() => {
-    const updateButton = document.getElementById("updateDetails");
-    const closeButton = document.getElementById("close");
-    const dialog = document.getElementById("favDialog");
-    dialog.returnValue = "favAnimal";
+```js
+const updateButton = document.getElementById("updateDetails");
+const closeButton = document.getElementById("close");
+const dialog = document.getElementById("favDialog");
+dialog.returnValue = "favAnimal";
 
-    function openCheck(dialog) {
-      if (dialog.open) {
-        console.log("Dialog open");
-      } else {
-        console.log("Dialog closed");
-      }
-    }
+function openCheck(dialog) {
+  if (dialog.open) {
+    console.log("Dialog open");
+  } else {
+    console.log("Dialog closed");
+  }
+}
 
-    // Update button opens a modal dialog
-    updateButton.addEventListener("click", () => {
-      dialog.showModal();
-      openCheck(dialog);
-    });
+// Update button opens a modal dialog
+updateButton.addEventListener("click", () => {
+  dialog.showModal();
+  openCheck(dialog);
+});
 
-    // Form close button closes the dialog box
-    closeButton.addEventListener("click", () => {
-      dialog.close("animalNotChosen");
-      openCheck(dialog);
-    });
-  })();
-</script>
+// Form close button closes the dialog box
+closeButton.addEventListener("click", () => {
+  dialog.close("animalNotChosen");
+  openCheck(dialog);
+});
 ```
 
 If the "X" button was of `type="submit"`, the dialog would have closed without requiring JavaScript.
-A form submission closes the `<dialog>` it is nested within if the [form's method is `dialog`](/en-US/docs/Web/HTML/Element/form#method), so no "close" button is required.
+A form submission closes the `<dialog>` it is nested within if the [form's method is `dialog`](/en-US/docs/Web/HTML/Reference/Elements/form#method), so no "close" button is required.
 
 ### Result
 

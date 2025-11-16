@@ -9,7 +9,8 @@ browser-compat: api.Document.createRange
 {{APIRef("DOM")}}
 
 The **`Document.createRange()`** method returns a new
-{{domxref("Range")}} object.
+{{domxref("Range")}} object whose start and end are offset 0 of the {{domxref("Document")}}
+object on which it was called.
 
 ## Syntax
 
@@ -28,7 +29,7 @@ The created {{domxref("Range")}} object.
 ## Examples
 
 ```js
-let range = document.createRange();
+const range = document.createRange();
 
 range.setStart(startNode, startOffset);
 range.setEnd(endNode, endOffset);

@@ -38,7 +38,7 @@ object returned by the method include the `padding` and
 `border-width`, not only the content width/height. In the standard box model,
 this would be equal to the `width` or `height` property of the
 element + `padding` + `border-width`. But
-if [`box-sizing: border-box`](/en-US/docs/Web/CSS/box-sizing) is
+if [`box-sizing: border-box`](/en-US/docs/Web/CSS/Reference/Properties/box-sizing) is
 set for the element this would be directly equal to its `width` or
 `height`.
 
@@ -139,7 +139,7 @@ function update() {
   const elem = document.getElementById("example");
   const rect = elem.getBoundingClientRect();
 
-  container.innerHTML = "";
+  container.textContent = "";
   for (const key in rect) {
     if (typeof rect[key] !== "function") {
       let para = document.createElement("p");
@@ -166,5 +166,3 @@ update();
 ## See also
 
 - {{domxref("Element.getClientRects", "getClientRects()")}}
-- [MSDN: `getBoundingClientRect`](<https://msdn.microsoft.com/library/ms536433(VS.85).aspx>)
-- [MSDN: `ClientRect`](<https://msdn.microsoft.com/library/hh826029(VS.85).aspx>), an earlier version of `DOMRect`

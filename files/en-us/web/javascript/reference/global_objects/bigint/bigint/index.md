@@ -1,11 +1,11 @@
 ---
 title: BigInt() constructor
+short-title: BigInt()
 slug: Web/JavaScript/Reference/Global_Objects/BigInt/BigInt
 page-type: javascript-constructor
 browser-compat: javascript.builtins.BigInt.BigInt
+sidebar: jsref
 ---
-
-{{JSRef}}
 
 The **`BigInt()`** function returns primitive values of type BigInt.
 
@@ -15,12 +15,13 @@ The **`BigInt()`** function returns primitive values of type BigInt.
 BigInt(value)
 ```
 
-> **Note:** `BigInt()` can only be called without [`new`](/en-US/docs/Web/JavaScript/Reference/Operators/new). Attempting to construct it with `new` throws a {{jsxref("TypeError")}}.
+> [!NOTE]
+> `BigInt()` can only be called without [`new`](/en-US/docs/Web/JavaScript/Reference/Operators/new). Attempting to construct it with `new` throws a {{jsxref("TypeError")}}.
 
 ### Parameters
 
 - `value`
-  - : The numeric value of the object being created. It may be a string, an integer, a boolean, or another `BigInt`.
+  - : The value to be converted to a BigInt value. It may be a string, an integer, a boolean, or another `BigInt`.
 
 ### Return value
 
@@ -52,7 +53,7 @@ BigInt(123.3); // RangeError: The number 123.3 cannot be converted to a BigInt b
 
 ```js
 BigInt("123"); // 123n
-BigInt("0b10101"); // 4161n, which is 10101 in binary
+BigInt("0b10101"); // 21n, which is 10101 in binary
 BigInt("0o123"); // 83n, which is 123 in octal
 BigInt("0x123"); // 291n, which is 123 in hexadecimal
 BigInt("  123  "); // 123n, leading and trailing whitespaces are allowed

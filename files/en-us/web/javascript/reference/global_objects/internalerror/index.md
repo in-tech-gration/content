@@ -5,9 +5,10 @@ page-type: javascript-class
 status:
   - non-standard
 browser-compat: javascript.builtins.InternalError
+sidebar: jsref
 ---
 
-{{JSRef}}{{Non-standard_Header}}
+{{Non-standard_Header}}
 
 The **`InternalError`** object indicates an error that occurred internally in the JavaScript engine.
 
@@ -22,7 +23,7 @@ Example cases are mostly when something is too large, e.g.:
 
 ## Constructor
 
-- {{jsxref("InternalError/InternalError", "InternalError()")}} {{Non-standard_Inline}}
+- {{jsxref("InternalError/InternalError", "InternalError()")}} {{non-standard_inline}}
   - : Creates a new `InternalError` object.
 
 ## Instance properties

@@ -47,10 +47,10 @@ We add a touch of CSS with a custom property to better demonstrate the output:
 
 ```css
 p {
-  --someVariable: 1.6em;
-  --someOtherVariable: translateX(33vw);
-  --anotherVariable: 42;
-  line-height: var(--someVariable);
+  --some-variable: 1.6em;
+  --some-other-variable: translateX(33vw);
+  --another-variable: 42;
+  line-height: var(--some-variable);
 }
 ```
 
@@ -66,7 +66,7 @@ const stylesList = document.querySelector("#output");
 // Retrieve all computed styles with computedStyleMap()
 const stylePropertyMap = myElement.computedStyleMap();
 
-// iterate thru the map of all the properties and values, adding a <dt> and <dd> for each
+// iterate through the map of all the properties and values, adding a <dt> and <dd> for each
 for (const [prop, val] of stylePropertyMap) {
   // properties
   const cssProperty = document.createElement("dt");

@@ -14,7 +14,8 @@ The `getAnimations()` method of the {{domxref("Element")}} interface
 in future. It can optionally return {{domxref("Animation")}} objects for descendant
 elements too.
 
-> **Note:** This array includes [CSS Animations](/en-US/docs/Web/CSS/CSS_animations), [CSS Transitions](/en-US/docs/Web/CSS/CSS_transitions), and [Web Animations](/en-US/docs/Web/API/Web_Animations_API).
+> [!NOTE]
+> This array includes [CSS Animations](/en-US/docs/Web/CSS/Guides/Animations), [CSS Transitions](/en-US/docs/Web/CSS/Guides/Transitions), and [Web Animations](/en-US/docs/Web/API/Web_Animations_API).
 
 ## Syntax
 
@@ -26,13 +27,11 @@ getAnimations(options)
 ### Parameters
 
 - `options` {{optional_inline}}
-
   - : An options object containing the following property:
-
     - `subtree`
       - : A boolean value which, if `true`, causes animations that target
         descendants of _Element_ to be returned as well. This includes animations
-        that target any CSS [pseudo-elements](/en-US/docs/Web/CSS/Pseudo-elements) attached to
+        that target any CSS [pseudo-elements](/en-US/docs/Web/CSS/Reference/Selectors/Pseudo-elements) attached to
         _Element_ or one of its descendants. Defaults to `false`.
 
 ### Return value
@@ -63,7 +62,7 @@ Promise.all(
 ## See also
 
 - [Web Animations API](/en-US/docs/Web/API/Web_Animations_API)
-- [CSS Animations](/en-US/docs/Web/CSS/CSS_animations)
-- [CSS Transitions](/en-US/docs/Web/CSS/CSS_transitions)
+- [CSS Animations](/en-US/docs/Web/CSS/Guides/Animations)
+- [CSS Transitions](/en-US/docs/Web/CSS/Guides/Transitions)
 - {{domxref("Document.getAnimations()")}} - Fetch all animations in the document
 - {{domxref("Animation")}}

@@ -4,7 +4,7 @@ slug: Web/API/WebCodecs_API
 page-type: web-api-overview
 ---
 
-{{DefaultAPISidebar("WebCodecs API")}}
+{{DefaultAPISidebar("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
 The **WebCodecs API** gives web developers low-level access to the individual frames of a video stream and chunks of audio.
 It is useful for web applications that require full control over the way media is processed.
@@ -13,7 +13,7 @@ For example, video or audio editors, and video conferencing.
 ## Concepts and Usage
 
 Many Web APIs use media codecs internally.
-For example, the {{domxref("Web Audio API")}}, and the {{domxref("WebRTC API")}}.
+For example, the [Web Audio API](/en-US/docs/Web/API/Web_Audio_API), and the [WebRTC API](/en-US/docs/Web/API/WebRTC_API).
 However these APIs do not allow developers to work with individual frames of a video stream and unmixed chunks of encoded audio or video.
 
 Web developers have typically used WebAssembly in order to get around this limitation,
@@ -74,13 +74,13 @@ used to demux audio and video data into {{domxref("EncodedAudioChunk")}} and {{d
 ## Examples
 
 In the following example, frames are returned from a {{domxref("MediaStreamTrackProcessor")}}, then encoded.
-See the full example and read more about it in the article [Video processing with WebCodecs](https://web.dev/webcodecs/).
+See the full example and read more about it in the article [Video processing with WebCodecs](https://developer.chrome.com/docs/web-platform/best-practices/webcodecs).
 
 ```js
-let frame_counter = 0;
+let frameCounter = 0;
 const track = stream.getVideoTracks()[0];
-const media_processor = new MediaStreamTrackProcessor(track);
-const reader = media_processor.readable.getReader();
+const mediaProcessor = new MediaStreamTrackProcessor(track);
+const reader = mediaProcessor.readable.getReader();
 while (true) {
   const result = await reader.read();
   if (result.done) break;
@@ -90,9 +90,9 @@ while (true) {
     // let's drop this frame.
     frame.close();
   } else {
-    frame_counter++;
-    const insert_keyframe = frame_counter % 150 === 0;
-    encoder.encode(frame, { keyFrame: insert_keyframe });
+    frameCounter++;
+    const insertKeyframe = frameCounter % 150 === 0;
+    encoder.encode(frame, { keyFrame: insertKeyframe });
     frame.close();
   }
 }
@@ -100,7 +100,7 @@ while (true) {
 
 ## See also
 
-- [Video processing with WebCodecs](https://web.dev/webcodecs/)
+- [Video processing with WebCodecs](https://developer.chrome.com/docs/web-platform/best-practices/webcodecs)
 - [WebCodecs API Samples](https://w3c.github.io/webcodecs/samples/)
 - [Real-Time Video Processing with WebCodecs and Streams: Processing Pipelines](https://webrtchacks.com/real-time-video-processing-with-webcodecs-and-streams-processing-pipelines-part-1/)
 - [Video Frame Processing on the Web – WebAssembly, WebGPU, WebGL, WebCodecs, WebNN, and WebTransport](https://webrtchacks.com/video-frame-processing-on-the-web-webassembly-webgpu-webgl-webcodecs-webnn-and-webtransport/)

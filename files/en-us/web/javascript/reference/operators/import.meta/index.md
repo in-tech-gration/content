@@ -3,9 +3,8 @@ title: import.meta
 slug: Web/JavaScript/Reference/Operators/import.meta
 page-type: javascript-language-feature
 browser-compat: javascript.operators.import_meta
+sidebar: jssidebar
 ---
-
-{{JSSidebar("Operators")}}
 
 The **`import.meta`** meta-property exposes context-specific metadata to a JavaScript module. It contains information about the module, such as the module's URL.
 
@@ -94,5 +93,5 @@ fs.readFile(fileURL, "utf8").then(console.log);
 
 ## See also
 
-- {{JSxRef("Statements/import", "import")}}
-- {{JSxRef("Statements/export", "export")}}
+- {{jsxref("Statements/import", "import")}}
+- {{jsxref("Statements/export", "export")}}

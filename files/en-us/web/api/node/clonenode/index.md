@@ -18,7 +18,8 @@ using [`addEventListener()`](/en-US/docs/Web/API/EventTarget/addEventListener) o
 those assigned to element properties (e.g., `node.onclick = someFunction`).
 Additionally, for a {{HTMLElement("canvas")}} element, the painted image is not copied.
 
-> **Warning:** `cloneNode()` may lead to duplicate element IDs in a document!
+> [!WARNING]
+> `cloneNode()` may lead to duplicate element IDs in a document!
 >
 > If the original node has an `id` attribute, and the clone
 > will be placed in the same document, then you should modify the clone's ID to be
@@ -40,12 +41,11 @@ cloneNode(deep)
 ### Parameters
 
 - `deep` {{optional_inline}}
-
   - : If `true`, then the node and its whole subtree,
     including text that may be in child {{domxref("Text")}} nodes,
     is also copied.
 
-    If `false`, only the node will be cloned.
+    If `false` or omitted, only the node will be cloned.
     The subtree, including any text that the node contains, is not cloned.
 
     Note that `deep` has no effect on {{glossary("void element", "void elements")}},
@@ -61,8 +61,8 @@ using {{domxref("Node.appendChild()")}} or a similar method.
 ## Example
 
 ```js
-let p = document.getElementById("para1");
-let p_prime = p.cloneNode(true);
+const p = document.getElementById("para1");
+const p2 = p.cloneNode(true);
 ```
 
 ## Specifications

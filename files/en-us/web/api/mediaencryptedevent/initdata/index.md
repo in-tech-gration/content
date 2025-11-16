@@ -6,13 +6,13 @@ page-type: web-api-instance-property
 browser-compat: api.MediaEncryptedEvent.initData
 ---
 
-{{APIRef("EncryptedMediaExtensions")}}
+{{APIRef("Encrypted Media Extensions")}}
 
 The read-only **`initData`** property of the {{domxref("MediaKeyMessageEvent")}} returns the initialization data contained in this event, if any.
 
 ## Value
 
-A {{jsxref("ArrayBuffer")}} with the initialization data, or `null` if there are none.
+An {{jsxref("ArrayBuffer")}} with the initialization data, or `null` if there are none.
 
 ## Specifications
 

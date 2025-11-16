@@ -38,9 +38,7 @@ _Also inherits properties from its parent interface, {{DOMxRef("CSSRule")}}._
 
 ```js
 const item = document.getElementsByTagName("p")[0];
-const rules = document.styleSheets[1].cssRules;
-// Note that stylesheet #1 is the stylesheet associated with this embedded example,
-// while stylesheet #0 is the stylesheet associated with the whole MDN page
+const rules = document.getElementById("css-output").sheet.cssRules;
 
 const layer = rules[0]; // A CSSLayerStatementRule
 
@@ -64,5 +62,5 @@ item.textContent = `The CSS @layer statement declares the following layers: ${la
 ## See also
 
 - {{cssxref("@layer")}}
-- [The `@layer` statement at-rule for named layers](/en-US/docs/Learn/CSS/Building_blocks/Cascade_layers#the_layer_statement_at-rule_for_named_layers)
+- [The `@layer` statement at-rule for named layers](/en-US/docs/Learn_web_development/Core/Styling_basics/Cascade_layers#the_layer_statement_at-rule_for_named_layers)
 - {{DOMxRef("CSSLayerBlockRule")}}

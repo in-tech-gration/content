@@ -9,7 +9,7 @@ browser-compat: api.AudioBufferSourceNode
 
 The **`AudioBufferSourceNode`** interface is an {{domxref("AudioScheduledSourceNode")}} which represents an audio source consisting of in-memory audio data, stored in an {{domxref("AudioBuffer")}}.
 
-This interface is especially useful for playing back audio which has particularly stringent timing accuracy requirements, such as for sounds that must match a specific rhythm and can be kept in memory rather than being played from disk or the network. To play sounds which require accurate timing but must be streamed from the network or played from disk, use a {{domxref("AudioWorkletNode")}} to implement its playback.
+This interface is especially useful for playing back audio which has particularly stringent timing accuracy requirements, such as for sounds that must match a specific rhythm and can be kept in memory rather than being played from disk or the network. To play sounds which require accurate timing but must be streamed from the network or played from disk, use an {{domxref("AudioWorkletNode")}} to implement its playback.
 
 {{InheritanceDiagram}}
 
@@ -67,18 +67,15 @@ _Inherits methods from its parent, {{domxref("AudioScheduledSourceNode")}}, and 
 - {{domxref("AudioBufferSourceNode.start", "start()")}}
   - : Schedules playback of the audio data contained in the buffer, or begins playback immediately. Additionally allows the start offset and play duration to be set.
 
-## Event handlers
-
-_Inherits event handlers from its parent, {{domxref("AudioScheduledSourceNode")}}_.
-
 ## Examples
 
 In this example, we create a two-second buffer, fill it with white noise, and then play it using an `AudioBufferSourceNode`. The comments should clearly explain what is going on.
 
-> **Note:** You can also [run the code live](https://mdn.github.io/webaudio-examples/audio-buffer/), or [view the source](https://github.com/mdn/webaudio-examples/blob/master/audio-buffer/index.html).
+> [!NOTE]
+> You can also [run the code live](https://mdn.github.io/webaudio-examples/audio-buffer/), or [view the source](https://github.com/mdn/webaudio-examples/blob/main/audio-buffer/index.html).
 
 ```js
-const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+const audioCtx = new AudioContext();
 
 // Create an empty three-second stereo buffer at the sample rate of the AudioContext
 const myArrayBuffer = audioCtx.createBuffer(
@@ -88,7 +85,7 @@ const myArrayBuffer = audioCtx.createBuffer(
 );
 
 // Fill the buffer with white noise;
-//just random values between -1.0 and 1.0
+// just random values between -1.0 and 1.0
 for (let channel = 0; channel < myArrayBuffer.numberOfChannels; channel++) {
   // This gives us the actual ArrayBuffer that contains the data
   const nowBuffering = myArrayBuffer.getChannelData(channel);
@@ -111,7 +108,8 @@ source.connect(audioCtx.destination);
 source.start();
 ```
 
-> **Note:** For a `decodeAudioData()` example, see the {{domxref("BaseAudioContext/decodeAudioData", "AudioContext.decodeAudioData()")}} page.
+> [!NOTE]
+> For a `decodeAudioData()` example, see the {{domxref("BaseAudioContext/decodeAudioData", "AudioContext.decodeAudioData()")}} page.
 
 ## Specifications
 

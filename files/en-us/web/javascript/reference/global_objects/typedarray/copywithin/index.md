@@ -1,15 +1,25 @@
 ---
 title: TypedArray.prototype.copyWithin()
+short-title: copyWithin()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/copyWithin
 page-type: javascript-instance-method
 browser-compat: javascript.builtins.TypedArray.copyWithin
+sidebar: jsref
 ---
-
-{{JSRef}}
 
 The **`copyWithin()`** method of {{jsxref("TypedArray")}} instances shallow copies part of this typed array to another location in the same typed array and returns this typed array without modifying its length. This method has the same algorithm as {{jsxref("Array.prototype.copyWithin()")}}.
 
-{{EmbedInteractiveExample("pages/js/typedarray-copywithin.html")}}
+{{InteractiveExample("JavaScript Demo: TypedArray.prototype.copyWithin()")}}
+
+```js interactive-example
+const uint8 = new Uint8Array([1, 2, 3, 4, 5, 6, 7, 8]);
+
+// Insert position, start position, end position
+uint8.copyWithin(3, 1, 3);
+
+console.log(uint8);
+// Expected output: Uint8Array [1, 2, 3, 2, 3, 6, 7, 8]
+```
 
 ## Syntax
 
@@ -21,7 +31,7 @@ copyWithin(target, start, end)
 ### Parameters
 
 - `target`
-  - : Zero-based index at which to copy the sequence to, [converted to an integer](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
+  - : Zero-based index at which to copy the sequence to, [converted to an integer](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion). This corresponds to where the element at `start` will be copied to, and all elements between `start` and `end` are copied to succeeding indices.
 - `start`
   - : Zero-based index at which to start copying elements from, [converted to an integer](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
 - `end` {{optional_inline}}
@@ -29,7 +39,7 @@ copyWithin(target, start, end)
 
 ### Return value
 
-The modified array.
+The modified typed array.
 
 ## Description
 

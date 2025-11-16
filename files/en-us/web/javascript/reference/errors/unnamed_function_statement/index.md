@@ -2,9 +2,8 @@
 title: "SyntaxError: function statement requires a name"
 slug: Web/JavaScript/Reference/Errors/Unnamed_function_statement
 page-type: javascript-error
+sidebar: jssidebar
 ---
-
-{{jsSidebar("Errors")}}
 
 The JavaScript exception "function statement requires a name" occurs
 when there is a [function statement](/en-US/docs/Web/JavaScript/Reference/Statements/function)
@@ -106,7 +105,7 @@ const greeter = {
 ### Callback syntax
 
 Also, check your syntax when using callbacks.
-Brackets and commas can quickly get confusing.
+Braces and commas can quickly get confusing.
 
 ```js-nolint example-bad
 promise.then(
@@ -137,5 +136,5 @@ promise.then(
 - [Functions](/en-US/docs/Web/JavaScript/Guide/Functions) guide
 - [`function`](/en-US/docs/Web/JavaScript/Reference/Statements/function)
 - [`function` expression](/en-US/docs/Web/JavaScript/Reference/Operators/function)
-- {{glossary("IIFE")}}
+- {{Glossary("IIFE")}}
 - [Labeled statement](/en-US/docs/Web/JavaScript/Reference/Statements/label)

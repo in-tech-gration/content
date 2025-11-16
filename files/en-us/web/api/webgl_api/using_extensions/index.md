@@ -6,9 +6,10 @@ page-type: guide
 
 {{DefaultAPISidebar("WebGL")}}
 
-WebGL, like its sister APIs (OpenGL and OpenGL ES), supports extensions. A complete list of extensions is available in the [khronos webgl extension registry](https://www.khronos.org/registry/webgl/extensions/).
+WebGL, like its sister APIs (OpenGL and OpenGL ES), supports extensions. A complete list of extensions is available in the [khronos webgl extension registry](https://registry.khronos.org/webgl/extensions/).
 
-> **Note:** In WebGL, unlike in other GL APIs, extensions are only available if explicitly requested.
+> [!NOTE]
+> In WebGL, unlike in other GL APIs, extensions are only available if explicitly requested.
 
 ## Canonical extension names, vendor prefixes and preferences
 
@@ -45,7 +46,7 @@ WebGL extensions are prefixed with "ANGLE", "OES", "EXT" or "WEBGL". These prefi
 The WebGL context supports querying what extensions are available.
 
 ```js
-const available_extensions = gl.getSupportedExtensions();
+const availableExtensions = gl.getSupportedExtensions();
 ```
 
 The {{domxref("WebGLRenderingContext.getSupportedExtensions()")}} method returns an array of strings, one for each supported extension.
@@ -59,7 +60,7 @@ The current extensions are:
 - {{domxref("EXT_color_buffer_float")}}
 - {{domxref("EXT_color_buffer_half_float")}}
 - {{domxref("EXT_disjoint_timer_query")}}
-- {{domxref("EXT_float_blend")}} {{experimental_inline}}
+- {{domxref("EXT_float_blend")}}
 - {{domxref("EXT_frag_depth")}}
 - {{domxref("EXT_shader_texture_lod")}}
 - {{domxref("EXT_sRGB")}}
@@ -97,7 +98,7 @@ The current extensions are:
 Before an extension can be used it has to be enabled using {{domxref("WebGLRenderingContext.getExtension()")}}. For example:
 
 ```js
-const float_texture_ext = gl.getExtension("OES_texture_float");
+const ext = gl.getExtension("OES_texture_float");
 ```
 
 The return value is `null` if the extension is not supported, or an extension object otherwise.
@@ -111,3 +112,4 @@ If an extension defines specific symbols or functions that are not available in 
 - {{domxref("WebGLRenderingContext.getSupportedExtensions()")}}
 - {{domxref("WebGLRenderingContext.getExtension()")}}
 - [webglreport.com](https://webglreport.com/)
+- [web3dsurvey.com - WebGL Extension Support Survey](https://web3dsurvey.com/)

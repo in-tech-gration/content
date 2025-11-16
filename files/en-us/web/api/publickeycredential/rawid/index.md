@@ -14,12 +14,13 @@ containing the identifier of the credentials.
 
 The {{domxref("PublicKeyCredential.id")}} property is a [base64url encoded](/en-US/docs/Glossary/Base64) version of this identifier.
 
-> **Note:** This property may only be used in top-level contexts and will
+> [!NOTE]
+> This property may only be used in top-level contexts and will
 > not be available in an {{HTMLElement("iframe")}} for example.
 
 ## Value
 
-A {{jsxref("ArrayBuffer")}} containing the identifier of the credentials. This
+An {{jsxref("ArrayBuffer")}} containing the identifier of the credentials. This
 identifier is expected to be globally unique and is appointed for the current
 `PublicKeyCredential` and its associated
 {{domxref("AuthenticatorAssertionResponse")}}.

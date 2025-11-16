@@ -2,9 +2,8 @@
 title: Deprecated and obsolete features
 slug: Web/JavaScript/Reference/Deprecated_and_obsolete_features
 page-type: guide
+sidebar: jssidebar
 ---
-
-{{JsSidebar("More")}}
 
 This page lists features of JavaScript that are deprecated (that is, still available but planned for removal) and obsolete (that is, no longer usable).
 
@@ -34,26 +33,27 @@ console.log("b");
 // Logs "a" and "b"
 ```
 
-`<!--` and `-->` both act like `//`, i.e. starting line comments. `-->` is only valid at the start of a line (to avoid ambiguity with a postfix decrement followed by a greater than operator), while `<!--` can occur anywhere in the line.
+`<!--` and `-->` both act like `//`, i.e., starting line comments. `-->` is only valid at the start of a line (to avoid ambiguity with a postfix decrement followed by a greater than operator), while `<!--` can occur anywhere in the line.
 
 ### RegExp
 
 The following properties are deprecated. This does not affect their use in [replacement strings](/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace):
 
-- {{jsxref("RegExp/n", "$1–$9")}}
+- [`$1–$9`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/n)
   - : Parenthesized substring matches, if any.
-- {{jsxref("RegExp.input", "input, $_")}}
+- [`input`, `$_`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/input)
   - : The string against which a regular expression is matched.
-- {{jsxref("RegExp.lastMatch", "lastMatch, $&amp;")}}
+- [`lastMatch`, `$&`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/lastMatch)
   - : The last matched substring.
-- {{jsxref("RegExp.lastParen", "lastParen, $+")}}
+- [`lastParen`, `$+`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/lastParen)
   - : The last parenthesized substring match, if any.
-- {{jsxref("RegExp.leftContext", "leftContext, $`")}}
+- [`leftContext`, `` $` ``](/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/leftContext)
   - : The substring preceding the most recent match.
-- {{jsxref("RegExp.rightContext", "rightContext, $'")}}
+- [`rightContext`, `$'`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/rightContext)
   - : The substring following the most recent match.
 
-> **Warning:** Avoid using these static properties, as they can cause [issues when interacting with external code](https://github.com/tc39/proposal-regexp-legacy-features/blob/master/subclass-restriction-motivation.md#legacy-static-properties-regexp1-etc)!
+> [!WARNING]
+> Avoid using these static properties, as they can cause [issues when interacting with external code](https://github.com/tc39/proposal-regexp-legacy-features/blob/master/subclass-restriction-motivation.md#legacy-static-properties-regexp1-etc)!
 
 The {{jsxref("RegExp/compile", "compile()")}} method is deprecated. Construct a new `RegExp` instance instead.
 
@@ -69,7 +69,7 @@ The following regex syntaxes are deprecated and only available in [Unicode-unawa
 
 ### Function
 
-- The {{jsxref("Global_Objects/Function/caller", "caller")}} property of functions and the [`arguments.callee`](/en-US/docs/Web/JavaScript/Reference/Functions/arguments/callee) property are deprecated and unavailable in strict mode.
+- The {{jsxref("Function/caller", "caller")}} property of functions and the [`arguments.callee`](/en-US/docs/Web/JavaScript/Reference/Functions/arguments/callee) property are deprecated and unavailable in strict mode.
 - Instead of accessing `arguments` as a property of a function, you should use the {{jsxref("Functions/arguments", "arguments")}} object inside function closures.
 
 ### Object
@@ -85,33 +85,33 @@ The following regex syntaxes are deprecated and only available in [Unicode-unawa
 
 ### Date
 
-- The {{jsxref("Global_Objects/Date/getYear", "getYear()")}} and {{jsxref("Global_Objects/Date/setYear", "setYear()")}} methods are affected by the Year-2000-Problem and have been subsumed by {{jsxref("Global_Objects/Date/getFullYear", "getFullYear")}} and {{jsxref("Global_Objects/Date/setFullYear", "setFullYear")}}.
-- The `toGMTString()` method is deprecated. Use {{jsxref("Global_Objects/Date/toUTCString", "toUTCString()")}} instead.
+- The {{jsxref("Date/getYear", "getYear()")}} and {{jsxref("Date/setYear", "setYear()")}} methods are affected by the Year-2000-Problem and have been subsumed by {{jsxref("Date/getFullYear", "getFullYear")}} and {{jsxref("Date/setFullYear", "setFullYear")}}.
+- The `toGMTString()` method is deprecated. Use {{jsxref("Date/toUTCString", "toUTCString()")}} instead.
 
 ### Escape sequences
 
 - Octal escape sequences (\ followed by one, two, or three octal digits) are deprecated in string and regular expression literals.
-- The {{jsxref("Global_Objects/escape", "escape")}} and {{jsxref("Global_Objects/unescape", "unescape")}} functions are deprecated. Use {{jsxref("Global_Objects/encodeURI", "encodeURI")}}, {{jsxref("Global_Objects/encodeURIComponent", "encodeURIComponent")}}, {{jsxref("Global_Objects/decodeURI", "decodeURI")}} or {{jsxref("Global_Objects/decodeURIComponent", "decodeURIComponent")}} to encode and decode escape sequences for special characters.
+- The {{jsxref("escape()")}} and {{jsxref("unescape()")}} functions are deprecated. Use {{jsxref("encodeURI()")}}, {{jsxref("encodeURIComponent()")}}, {{jsxref("decodeURI()")}}, or {{jsxref("decodeURIComponent()")}} to encode and decode escape sequences for special characters.
 
 ### Statements
 
 The [`with`](/en-US/docs/Web/JavaScript/Reference/Statements/with) statement is deprecated and unavailable in strict mode.
 
-Initializers in `var` declarations of [`for...in`](/en-US/docs/Web/JavaScript/Reference/Statements/for...in) loops headers are deprecated and produce [syntax errors](/en-US/docs/Web/JavaScript/Reference/Errors/Invalid_for-in_initializer) in strict mode. They are silently ignored in non-strict mode.
+Initializers in `var` declarations of [`for...in`](/en-US/docs/Web/JavaScript/Reference/Statements/for...in) loops headers are deprecated and produce [syntax errors](/en-US/docs/Web/JavaScript/Reference/Errors/Invalid_for-in_initializer) in strict mode. The initializer expression is evaluated and assigned to the variable, but the value would be immediately reassigned on the first iteration of the loop.
 
-Normally, the `catch` block of a [`try...catch`](/en-US/docs/Web/JavaScript/Reference/Statements/try...catch) statement cannot contain any variable declaration with the same name as the variables bound in the `catch()`. An extension grammar allows the `catch` block to contain a [`var`](/en-US/docs/Web/JavaScript/Reference/Statements/var) declared variable with the same name as the `catch`-bound identifier, but only if the `catch` binding is a simple identifier, not a [destructuring pattern](/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment). However, this variable's initialization and assignment would only act on the `catch`-bound identifier, instead of the upper scope variable, and the behavior could be confusing.
+Normally, the `catch` block of a [`try...catch`](/en-US/docs/Web/JavaScript/Reference/Statements/try...catch) statement cannot contain any variable declaration with the same name as the variables bound in the `catch()`. An extension grammar allows the `catch` block to contain a [`var`](/en-US/docs/Web/JavaScript/Reference/Statements/var) declared variable with the same name as the `catch`-bound identifier, but only if the `catch` binding is a simple identifier, not a [destructuring pattern](/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring). However, this variable's initialization and assignment would only act on the `catch`-bound identifier, instead of the upper scope variable, and the behavior could be confusing.
 
 ```js
 var a = 2;
 try {
-  throw 42;
+  throw new Error();
 } catch (a) {
   var a = 1; // This 1 is assigned to the caught `a`, not the outer `a`.
 }
 console.log(a); // 2
 
 try {
-  throw 42;
+  throw new Error();
   // Note: identifier changed to `err` to avoid conflict with
   // the inner declaration of `a`.
 } catch (err) {
@@ -227,7 +227,7 @@ Array comprehensions and generator comprehensions are removed.
 (for (x of iterable) for (y of iterable) x + y)
 ```
 
-Firefox, prior to version 26, implemented another iterator protocol that is similar to the standard [Iterator protocol](/en-US/docs/Web/JavaScript/Reference/Iteration_protocols). An object is an legacy iterator when it implements a `next()` method, which produces a value on each call and throws a `StopIteration` object at the end of iteration. This legacy iterator protocol differs from the standard iterator protocol:
+Firefox, prior to version 26, implemented another iterator protocol that is similar to the standard [Iterator protocol](/en-US/docs/Web/JavaScript/Reference/Iteration_protocols). An object is a legacy iterator when it implements a `next()` method, which produces a value on each call and throws a `StopIteration` object at the end of iteration. This legacy iterator protocol differs from the standard iterator protocol:
 
 - The value was returned directly as the return value of calls to `next()`, instead of the `value` property of the `IteratorResult` object.
 - Iteration termination was expressed by throwing a `StopIteration` object, instead of through the `done` property of the `IteratorResult` object.
